@@ -47,16 +47,16 @@ final class ResultViewController: UIViewController {
             }
         }
 
-        if dog > cat && dog > rabbit && dog > turtle {
+        if dog >= cat && dog >= rabbit && dog >= turtle {
             animalLabel.text = "Вы - \(Animal.dog.rawValue)"
             definitionLabel.text = Animal.dog.definition
-        } else if cat > dog && cat > rabbit && cat > turtle {
+        } else if cat >= dog && cat >= rabbit && cat >= turtle {
             animalLabel.text = "Вы - \(Animal.cat.rawValue)"
             definitionLabel.text = Animal.cat.definition
-        } else if rabbit > dog && rabbit > cat && rabbit > turtle {
+        } else if rabbit >= dog && rabbit >= cat && rabbit >= turtle {
             animalLabel.text = "Вы - \(Animal.rabbit.rawValue)"
             definitionLabel.text = Animal.rabbit.definition
-        } else if turtle > dog && turtle > cat && turtle > rabbit {
+        } else if turtle >= dog && turtle >= cat && turtle >= rabbit {
             animalLabel.text = "Вы - \(Animal.turtle.rawValue)"
             definitionLabel.text = Animal.turtle.definition
         }
