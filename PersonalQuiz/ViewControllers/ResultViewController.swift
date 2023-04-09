@@ -2,25 +2,32 @@
 //  ResultViewController.swift
 //  PersonalQuiz
 //
-//  Created by Alexey Efimov on 06.04.2023.
+//  Created by Alexey Efimov and Alexey Kanaev on 06.04.2023.
 //
 
 import UIKit
 
 final class ResultViewController: UIViewController {
 
+    @IBOutlet weak var animalLabel: UILabel!
+    @IBOutlet weak var definitionLabel: UILabel!
+
     var answers: [Answer] = []
-    var animals: [Animal] = []
-    var dog = 0
-    var cat = 0
-    var rabbit = 0
-    var turtle = 0
+    
+    private var animals: [Animal] = []
+    private var dog = 0
+    private var cat = 0
+    private var rabbit = 0
+    private var turtle = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         getAnimal()
+    }
 
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
 
     private func getAnimal() {
@@ -41,22 +48,18 @@ final class ResultViewController: UIViewController {
         }
 
         if dog > cat && dog > rabbit && dog > turtle {
-            print("Dog \(dog)")
+            animalLabel.text = "Вы - \(Animal.dog.rawValue)"
+            definitionLabel.text = Animal.dog.definition
         } else if cat > dog && cat > rabbit && cat > turtle {
-            print("Cat \(cat)")
+            animalLabel.text = "Вы - \(Animal.cat.rawValue)"
+            definitionLabel.text = Animal.cat.definition
         } else if rabbit > dog && rabbit > cat && rabbit > turtle {
-            print("Rabbit \(rabbit)")
+            animalLabel.text = "Вы - \(Animal.rabbit.rawValue)"
+            definitionLabel.text = Animal.rabbit.definition
         } else if turtle > dog && turtle > cat && turtle > rabbit {
-            print("Turtle \(turtle)")
+            animalLabel.text = "Вы - \(Animal.turtle.rawValue)"
+            definitionLabel.text = Animal.turtle.definition
         }
     }
 
-
-    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
-    }
-    
-    deinit {
-        print("\(type(of: self)) has been deallocated")
-    }
 }
